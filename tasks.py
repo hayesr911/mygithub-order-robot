@@ -53,7 +53,6 @@ def get_order(order_item):
     page = browser.page()
     page.select_option("#head", str(order_item["Head"]))
     page.check("//input[@id='id-body-1']")
-    #page.check()
     page.fill("//input[@type='number']", str(order_item["Legs"]))
     page.fill("#address", str(order_item["Address"]))
     page.click("//button[text()='Order']")
@@ -72,24 +71,25 @@ def get_order(order_item):
 
 def store_receipt_as_pdf(receipt, order_number):
     """
+    Create PDF file and Store robot order receipt.
     """
    
     pdf = PDF()
     pdf.html_to_pdf(receipt, f"output/{order_number}.pdf")
-    pdf_file =f"output/{order_number}.pdf"
-    return pdf_file
+    return f"output/{order_number}.pdf"
     
    
 def screenshot_robot(order_number):
     """
+    Saves the screenshot of the ordered robot.
     """
     page = browser.page()
     page.screenshot(path=f"output/{order_number}.png")
-    screenshot =f"output/{order_number}.png"
-    return screenshot
+    return f"output/{order_number}.png"
      
 def embed_screenshot_to_receipt(screenshot, pdf_file):
     """
+    Embeds the screenshot of the robot to the PDF receipt
     """
     pdf = PDF()
     pdf.open_pdf(pdf_file)
@@ -100,7 +100,7 @@ def embed_screenshot_to_receipt(screenshot, pdf_file):
 
 def archive_receipts():
     """
-    Create Archive of receipt anf screenshor of the robot orders
+    Creates ZIP archive of the receipts and the images.
     """
     lib = FileSystem()
     lib.create_directory("output/archive")
