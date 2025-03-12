@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "/Users/dylanhayes/git/mygithub-order-robot/."
+    ],
+    "python.terminal.activateEnvironment": false
+}

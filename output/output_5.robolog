@@ -1,0 +1,439 @@
+V 0.0.4
+T 2025-03-12T13:14:59.734+00:00
+ID 5|00294be2-ff44-11ef-8a79-1094bbe4f56e
+I "sys.platform=darwin"
+I "python=3.12.8 | packaged by conda-forge | (main, Dec  5 2024, 14:25:12) [Clang 18.1.8 ]"
+M a:"tasks.py"
+RR a|0.014
+M m:"order_robots_from_RobotSpareBin"
+M n:"tasks"
+M o:"/Users/dylanhayes/git/mygithub-order-robot/tasks.py"
+M p:"\n    Orders robots from RobotSpareBin Industries Inc.\n    Saves the order HTML receipt as a PDF file.\n    Saves the screenshot of the ordered robot.\n    Embeds the screenshot of the robot to the PDF receipt.\n    Creates ZIP archive of the receipts and the images.\n    "
+P l:m|n|o|p|9
+RT l|13.717
+M u:"METHOD"
+RE l|u|13.722
+M av:"fill_form_with_cvs_data"
+M e:""
+P au:av|n|o|e|44
+RE au|u|21.164
+M aV:"for row in data"
+P aU:aV|n|o|e|50
+M aW:"FOR"
+RE aU|aW|21.175
+M a2:"Step: for row in data"
+P a1:a2|n|o|e|50
+M a3:"FOR_STEP"
+RE a1|a3|112.28
+M a7:"get_order"
+P a6:a7|n|o|e|61
+RE a6|u|112.281
+P cG:a7|n|o|e|84
+M cH:"screenshot"
+M C:"str"
+M fX:"'output/RSB-ROBO-ORDER-7RQ04F1J2ON.png'"
+AS cG|cH|C|fX|127.395
+M cJ:"embed_screenshot_to_receipt"
+P cI:cJ|n|o|e|107
+SE cI|u|127.402
+EA cH|C|fX
+M cv:"pdf_file"
+M fV:"'output/RSB-ROBO-ORDER-7RQ04F1J2ON.pdf'"
+EA cv|C|fV
+M cb:"PDF.__init__"
+M cc:"RPA.PDF"
+M cd:"/Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/lib/python3.12/site-packages/RPA/PDF/__init__.py"
+P ca:cb|cc|cd|e|101
+SE ca|u|127.403
+M k:"PASS"
+EE u|k|127.413
+P cK:cJ|n|o|e|111
+M cf:"pdf"
+M cg:"PDF"
+M fY:"<RPA.PDF.PDF object at 0x1154ee0c0>"
+AS cK|cf|cg|fY|127.413
+M cN:"DocumentKeywords.open_pdf"
+M ck:"RPA.PDF.keywords.document"
+M cl:"/Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/lib/python3.12/site-packages/RPA/PDF/keywords/document.py"
+P cM:cN|ck|cl|e|153
+SE cM|u|127.413
+M cO:"source_path"
+EA cO|C|fV
+EE u|k|127.414
+M cQ:"DocumentKeywords.add_watermark_image_to_pdf"
+P cP:cQ|ck|cl|e|889
+SE cP|u|127.415
+M cR:"image_path"
+EA cR|C|fX
+M cn:"output_path"
+EA cn|C|fV
+M Y:"NoneType"
+M Z:"None"
+EA cO|Y|Z
+M cS:"coverage"
+M cT:"float"
+M cU:"0.2"
+EA cS|cT|cU
+EE u|k|127.501
+M cW:"DocumentKeywords.save_pdf"
+P cV:cW|ck|cl|e|1003
+SE cV|u|127.501
+EA cn|C|fV
+M cX:"reader"
+EA cX|Y|Z
+EE u|k|127.517
+EE u|k|127.517
+M S:"Page.click"
+M T:"playwright.sync_api._generated"
+M U:"/Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/lib/python3.12/site-packages/playwright/sync_api/_generated.py"
+P R:S|T|U|e|9852
+SE R|u|127.517
+M V:"selector"
+M cY:"\"//button[text()='Order another robot']\""
+EA V|C|cY
+P X:S|T|U|e|9920
+R X|Y|Z|127.729
+EE u|k|127.729
+SE R|u|127.729
+M W:"\"//button[text()='OK']\""
+EA V|C|W
+R X|Y|Z|127.861
+EE u|k|127.861
+EE u|k|127.861
+EE a3|k|127.861
+M aZ:"UNTRACKED_GENERATOR"
+EE aZ|k|127.861
+EE aW|k|127.862
+EE u|k|127.862
+M f0:"archive_receipts"
+P fZ:f0|n|o|e|118
+SE fZ|u|127.862
+M f2:"FileSystem.__init__"
+M f3:"RPA.FileSystem"
+M f4:"/Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/lib/python3.12/site-packages/RPA/FileSystem.py"
+P f1:f2|f3|f4|e|126
+SE f1|u|127.862
+EE u|k|127.863
+P f5:f0|n|o|e|122
+M f6:"lib"
+M f7:"FileSystem"
+M f8:"<RPA.FileSystem.FileSystem object at 0x1144f7d70>"
+AS f5|f6|f7|f8|127.863
+M ga:"FileSystem.create_directory"
+P f9:ga|f3|f4|e|518
+SE f9|u|127.869
+M aG:"path"
+M gb:"'output/archive'"
+EA aG|C|gb
+M gc:"parents"
+M al:"bool"
+M ao:"False"
+EA gc|al|ao
+M gd:"exist_ok"
+M am:"True"
+EA gd|al|am
+EE u|k|127.87
+M gf:"FileSystem.find_files"
+P ge:gf|f3|f4|e|129
+SE ge|u|127.871
+M gg:"pattern"
+M gh:"'output/*.pdf'"
+EA gg|C|gh
+M gi:"include_dirs"
+EA gi|al|am
+M gj:"include_files"
+EA gj|al|am
+P gk:gf|f3|f4|e|175
+M bg:"list"
+M gl:"[File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-4H6RTFD3KJ.pdf', name='RSB-ROBO-ORDER-4H6RTFD3KJ.pdf', size=108714, mtime=1741785325.0303636), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-4R3K1B2I3I.pdf', name='RSB-ROBO-ORDER-4R3K1B2I3I.pdf', size=129041, mtime=1741785396.5456421), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-7GDFDULZX7.pdf', name='RSB-ROBO-ORDER-7GDFDULZX7.pdf', size=108538, mtime=1741785347.4332223), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-7RQ04F1J2ON.pdf', name='RSB-ROBO-ORDER-7RQ04F1J2ON.pdf', size=104101, mtime=1741785427.251564), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-7ZNO1GKLNA.pdf', name='RSB-ROBO-ORDER-7ZNO1GKLNA.pdf', size=111012, mtime=1741785384.1549616), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-8X4RIX547Q.pdf', name='RSB-ROBO-ORDER-8X4RIX547Q.pdf', size=120250, mtime=1741785393.4412308), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-AUX35OMAWI.pdf', name='RSB-ROBO-ORDER-AUX35OMAWI.pdf', size=140163, mtime=1741785340.0506787), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-FANLYAWTX8I.pdf', name='RSB-ROBO-ORDER-FANLYAWTX8I.pdf', size=115115, mtime=1741785043.4350145), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-FPEVDAZWMHS.pdf', name='RSB-ROBO-ORDER-FPEVDAZWMHS.pdf', size=108166, mtime=1741785411.6577587), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-H10ZWPCLZ8.pdf', name='RSB-ROBO-ORDER-H10ZWPCLZ8.pdf', size=118426, mtime=1741785327.3841813), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-LXX837RDIX.pdf', name='RSB-ROBO-ORDER-LXX837RDIX.pdf', size=108763, mtime=1741785075.5874333), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-MRVYZRU3O2.pdf', name='RSB-ROBO-ORDER-MRVYZRU3O2.pdf', size=103864, mtime=1741785375.5560389), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-NAOYMT7YJ.pdf', name='RSB-ROBO-ORDER-NAOYMT7YJ.pdf', size=117731, mtime=1741785381.085242), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-QLYYZWFO5.pdf', name='RSB-ROBO-ORDER-QLYYZWFO5.pdf', size=114753, mtime=1741785323.6039772), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-S8XQFFKA4F.pdf', name='RSB-ROBO-ORDER-S8XQFFKA4F.pdf', size=114960, mtime=1741785352.30736), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-TZH6FX9Z9F.pdf', name='RSB-ROBO-ORDER-TZH6FX9Z9F.pdf', size=110696, mtime=1741785386.421563), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-UQK2RDYIYC.pdf', name='RSB-ROBO-ORDER-UQK2RDYIYC.pdf', size=105632, mtime=1741785395.2254486), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-VN495ULJFG.pdf', name='RSB-ROBO-ORDER-VN495ULJFG.pdf', size=116071, mtime=1741785342.626083), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-VX68CSFKR.pdf', name='RSB-ROBO-ORDER-VX68CSFKR.pdf', size=99608, mtime=1741785345.0580695), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-Y222IO5FXM.pdf', name='RSB-ROBO-ORDER-Y222IO5FXM.pdf', size=139040, mtime=1741785349.8266807), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-Y5XD82MP8.pdf', name='RSB-ROBO-ORDER-Y5XD82MP8.pdf', size=107124, mtime=1741785353.7710838), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-ZYALSJ3WD.pdf', name='RSB-ROBO-ORDER-ZYALSJ3WD.pdf', size=99646, mtime=1741785392.098593)]"
+R gk|bg|gl|127.877
+EE u|k|127.877
+P gm:f0|n|o|e|125
+M gn:"matches"
+AS gm|gn|bg|gl|127.878
+M gp:"if matches"
+P go:gp|n|o|e|126
+M bE:"IF_SCOPE"
+SE go|bE|127.878
+EA gn|bg|gl
+M gr:"FileSystem.move_files"
+P gq:gr|f3|f4|e|721
+SE gq|u|127.879
+M gs:"sources"
+EA gs|bg|gl
+M gt:"destination"
+EA gt|C|gb
+M ap:"overwrite"
+EA ap|al|ao
+EE u|k|127.894
+EE bE|k|127.894
+SE ge|u|127.897
+M gu:"'output/*.png'"
+EA gg|C|gu
+EA gi|al|am
+EA gj|al|am
+M gv:"[File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-4H6RTFD3KJ.png', name='RSB-ROBO-ORDER-4H6RTFD3KJ.png', size=102613, mtime=1741785324.865877), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-4R3K1B2I3I.png', name='RSB-ROBO-ORDER-4R3K1B2I3I.png', size=121715, mtime=1741785396.3615174), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-7GDFDULZX7.png', name='RSB-ROBO-ORDER-7GDFDULZX7.png', size=100181, mtime=1741785347.1944768), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-7RQ04F1J2ON.png', name='RSB-ROBO-ORDER-7RQ04F1J2ON.png', size=98414, mtime=1741785427.1239944), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-7ZNO1GKLNA.png', name='RSB-ROBO-ORDER-7ZNO1GKLNA.png', size=102649, mtime=1741785383.505525), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-8X4RIX547Q.png', name='RSB-ROBO-ORDER-8X4RIX547Q.png', size=112881, mtime=1741785393.2708344), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-AUX35OMAWI.png', name='RSB-ROBO-ORDER-AUX35OMAWI.png', size=132306, mtime=1741785339.8446631), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-FANLYAWTX8I.png', name='RSB-ROBO-ORDER-FANLYAWTX8I.png', size=107401, mtime=1741785042.8936546), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-FPEVDAZWMHS.png', name='RSB-ROBO-ORDER-FPEVDAZWMHS.png', size=103242, mtime=1741785411.5396867), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-H10ZWPCLZ8.png', name='RSB-ROBO-ORDER-H10ZWPCLZ8.png', size=111644, mtime=1741785327.2044508), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-LXX837RDIX.png', name='RSB-ROBO-ORDER-LXX837RDIX.png', size=103732, mtime=1741785075.4655626), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-MRVYZRU3O2.png', name='RSB-ROBO-ORDER-MRVYZRU3O2.png', size=99382, mtime=1741785375.3872478), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-NAOYMT7YJ.png', name='RSB-ROBO-ORDER-NAOYMT7YJ.png', size=106268, mtime=1741785380.9161193), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-QLYYZWFO5.png', name='RSB-ROBO-ORDER-QLYYZWFO5.png', size=107130, mtime=1741785323.0007155), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-S8XQFFKA4F.png', name='RSB-ROBO-ORDER-S8XQFFKA4F.png', size=107732, mtime=1741785352.102165), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-TZH6FX9Z9F.png', name='RSB-ROBO-ORDER-TZH6FX9Z9F.png', size=103228, mtime=1741785386.178723), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-UQK2RDYIYC.png', name='RSB-ROBO-ORDER-UQK2RDYIYC.png', size=98936, mtime=1741785395.0572658), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-VN495ULJFG.png', name='RSB-ROBO-ORDER-VN495ULJFG.png', size=107069, mtime=1741785342.3887038), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-VX68CSFKR.png', name='RSB-ROBO-ORDER-VX68CSFKR.png', size=93049, mtime=1741785344.8525443), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-Y222IO5FXM.png', name='RSB-ROBO-ORDER-Y222IO5FXM.png', size=131350, mtime=1741785349.5989604), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-Y5XD82MP8.png', name='RSB-ROBO-ORDER-Y5XD82MP8.png', size=101844, mtime=1741785353.5663424), File(path='/Users/dylanhayes/git/mygithub-order-robot/output/RSB-ROBO-ORDER-ZYALSJ3WD.png', name='RSB-ROBO-ORDER-ZYALSJ3WD.png', size=86101, mtime=1741785391.9145734)]"
+R gk|bg|gv|127.906
+EE u|k|127.907
+P gw:f0|n|o|e|129
+AS gw|gn|bg|gv|127.907
+P gx:gp|n|o|e|130
+SE gx|bE|127.908
+EA gn|bg|gv
+SE gq|u|127.909
+EA gs|bg|gv
+EA gt|C|gb
+EA ap|al|ao
+EE u|k|127.918
+EE bE|k|127.918
+M gz:"Archive.__init__"
+M gA:"RPA.Archive"
+M gB:"/Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/lib/python3.12/site-packages/RPA/Archive.py"
+P gy:gz|gA|gB|e|80
+SE gy|u|127.918
+EE u|k|127.919
+P gC:f0|n|o|e|132
+M gD:"Archive"
+M gE:"<RPA.Archive.Archive object at 0x1154dbec0>"
+AS gC|f6|gD|gE|127.919
+M gG:"Archive.archive_folder_with_zip"
+P gF:gG|gA|gB|e|83
+SE gF|u|127.92
+M gH:"folder"
+M gI:"'./output/archive'"
+EA gH|C|gI
+M gJ:"archive_name"
+M gK:"'mydocs.zip'"
+EA gJ|C|gK
+M gL:"recursive"
+EA gL|al|ao
+M gM:"include"
+EA gM|Y|Z
+M gN:"exclude"
+EA gN|Y|Z
+M gO:"compression"
+M gP:"'stored'"
+EA gO|C|gP
+EE u|k|129.125
+EE u|k|129.125
+EE u|k|129.125
+M s:"task_name"
+C s|m|129.236
+M f:"regular"
+M gQ:" status: "
+C f|gQ|129.237
+M gR:"PASS\n"
+C f|gR|129.238
+M gS:"================================================================================\n"
+C f|gS|129.239
+ET k|e|129.241
+M gU:"Teardown tasks"
+M gV:"teardown"
+P gT:gU|gV|e|e|0
+ST gT|129.241
+M gW:"Process snapshot"
+SPS gW|130.188
+M gX:"System information:\nMemory: Total: 8.0 G, Available: 2.0 G, Used: 74.4 %\nCPUs: 4"
+P gY:e|e|e|e|0
+L I|gX|gY|0|130.514
+M gZ:"Current Process: python3.12 (pid: 82632, status: running)\nCommand Line: /Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/bin/python3.12 -m robocorp.tasks run tasks.py\nStarted: 15:14:57\nParent pid: 82600\nResident Set Size: 130.0 M\nVirtual Memory Size: 32.2 G"
+L I|gZ|gY|0|130.524
+M g0:"OutputToPortThread|Thread ID: 123145470836736 (daemon)"
+STD g0|130.524
+M g1:"/Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/lib/python3.12/threading.py"
+M g2:"_bootstrap"
+M g3:"self._bootstrap_inner()"
+TBE g1|1032|g2|g3
+M g4:"self"
+M g5:"Thread"
+M g6:"<Thread(OutputToPortThread, started daemon 123145470836736)>"
+TBV g4|g5|g6
+M g7:"_bootstrap_inner"
+M g8:"self.run()"
+TBE g1|1075|g7|g8
+TBV g4|g5|g6
+M g9:"run"
+M ha:"self._target(*self._args, **self._kwargs)"
+TBE g1|1012|g9|ha
+TBV g4|g5|g6
+M hb:"/Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/lib/python3.12/site-packages/robocorp/tasks/_log_output_setup.py"
+M hc:"write_in_thread"
+M hd:"msg = q.get()"
+TBE hb|73|hc|hd
+M he:"msg"
+M hf:"'ST gT|129.233\\n'"
+TBV he|C|hf
+M hg:"client_socket"
+M hh:"socket"
+M hi:"<socket.socket fd=4, family=2, type=1, proto=0, laddr=('127.0.0.1', 54692), raddr=('127.0.0.1', 59552)>"
+TBV hg|hh|hi
+M hj:"log"
+M hk:"module"
+M hl:"<module 'robocorp.log' from '/Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/lib/python3.12/site-packages/robocorp/log/__init__.py'>"
+TBV hj|hk|hl
+M hm:"port_in_env"
+M hn:"'59552'"
+TBV hm|C|hn
+M ho:"q"
+M hp:"Queue"
+M hq:"<queue.Queue object at 0x10f6c63c0>"
+TBV ho|hp|hq
+M hr:"/Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/lib/python3.12/queue.py"
+M hs:"get"
+M ht:"self.not_empty.wait()"
+TBE hr|171|hs|ht
+TBV g4|hp|hq
+M hu:"block"
+TBV hu|al|am
+M hv:"timeout"
+TBV hv|Y|Z
+M hw:"wait"
+M hx:"waiter.acquire()"
+TBE g1|355|hw|hx
+M hy:"Condition"
+M hz:"<Condition(<unlocked _thread.lock object at 0x10f187a80>, 1)>"
+TBV g4|hy|hz
+TBV hv|Y|Z
+M hA:"waiter"
+M hB:"lock"
+M hC:"<locked _thread.lock object at 0x11209c180>"
+TBV hA|hB|hC
+M hD:"saved_state"
+TBV hD|Y|Z
+M hE:"gotit"
+TBV hE|al|ao
+ETD 130.534
+M hF:"MainThread|Thread ID: 4577392128 (non daemon)"
+STD hF|130.535
+M hG:"/Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/lib/python3.12/site-packages/robocorp/log/__init__.py"
+M hH:"process_snapshot"
+M hI:"robo_logger.process_snapshot()"
+TBE hG|270|hH|hI
+M hJ:"logger_instances"
+M aa:"dict"
+M hK:"{<robocorp.log._robo_logger._RoboLogger object at 0x10f6c4bc0>: 1, <robocorp.log._robo_logger._RoboLogger object at 0x10f7fc5f0>: 1}"
+TBV hJ|aa|hK
+M hL:"robo_logger"
+M hM:"_RoboLogger"
+M hN:"<robocorp.log._robo_logger._RoboLogger object at 0x10f6c4bc0>"
+TBV hL|hM|hN
+M hO:"/Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/lib/python3.12/site-packages/robocorp/log/_robo_logger.py"
+M hP:"new_func"
+M hQ:"return func(self, *args, **kwargs)"
+TBE hO|20|hP|hQ
+TBV g4|hM|hN
+M 6:"args"
+M 7:"tuple"
+M 8:"()"
+TBV 6|7|8
+M 9:"kwargs"
+M ab:"{}"
+TBV 9|aa|ab
+M hR:"func"
+M hS:"function"
+M hT:"<function _RoboLogger.process_snapshot at 0x10f8f7e20>"
+TBV hR|hS|hT
+M hU:"return self._robot_output_impl.process_snapshot(hide_vars)"
+TBE hO|416|hH|hU
+TBV g4|hM|hN
+M hV:"hide_vars"
+TBV hV|al|ao
+M hW:"/Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/lib/python3.12/site-packages/robocorp/log/_robo_output_impl.py"
+M hX:"self._dump_threads(hide_vars)"
+TBE hW|748|hH|hX
+M hY:"_RoboOutputImpl"
+M hZ:"<robocorp.log._robo_output_impl._RoboOutputImpl object at 0x10ee83530>"
+TBV g4|hY|hZ
+TBV hV|al|ao
+TBV hj|hk|hl
+M h0:"entry_id"
+M h1:"'ps_0'"
+TBV h0|C|h1
+M h2:"entry_type"
+M h3:"'process_snapshot'"
+TBV h2|C|h3
+M h4:"psutil"
+M h5:"<module 'psutil' from '/Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/lib/python3.12/site-packages/psutil/__init__.py'>"
+TBV h4|hk|h5
+M h6:"AccessDenied"
+M h7:"type"
+M h8:"<class 'psutil.AccessDenied'>"
+TBV h6|h7|h8
+M h9:"NoSuchProcess"
+M ia:"<class 'psutil.NoSuchProcess'>"
+TBV h9|h7|ia
+M ib:"ZombieProcess"
+M ic:"<class 'psutil.ZombieProcess'>"
+TBV ib|h7|ic
+M id:"curr_process"
+M ie:"Process"
+M if:"psutil.Process(pid=82632, name='python3.12', status='running', started='15:14:57')"
+TBV id|ie|if
+M ig:"log_info"
+M ih:"<function _RoboOutputImpl.process_snapshot.<locals>.log_info at 0x11247d080>"
+TBV ig|hS|ih
+M ii:"memory_info"
+M ij:"'Total: 8.0 G, Available: 2.0 G, Used: 74.4 %'"
+TBV ii|C|ij
+M ik:"child_i"
+M bA:"int"
+M cr:"0"
+TBV ik|bA|cr
+M il:"child"
+TBV il|ie|if
+M im:"name"
+M in:"'python3.12'"
+TBV im|C|in
+M io:"status"
+M ip:"'running'"
+TBV io|C|ip
+M iq:"create_time"
+M ir:"'15:14:57'"
+TBV iq|C|ir
+M is:"ppid"
+M it:"'82600'"
+TBV is|C|it
+M iu:"cmdline"
+M iv:"'/Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/bin/python3.12 -m robocorp.tasks run tasks.py'"
+TBV iu|C|iv
+M iw:"rss"
+M ix:"'130.0 M'"
+TBV iw|C|ix
+M iy:"vms"
+M iz:"'32.2 G'"
+TBV iy|C|iz
+M iA:"proc_memory_info"
+M iB:"pmem"
+M iC:"pmem(rss=136364032, vms=34588798976, pfaults=194199, pageins=3368)"
+TBV iA|iB|iC
+M iD:"message"
+M iE:"'Current Process: python3.12 (pid: 82632, status: running)\\nCommand Line: /Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/bin/python3.12 -m robocorp.tasks run tasks.py\\nStarted: 15:14:57\\nParent pid: 82600\\nResident Set Size: 130.0 M\\nVirtual Memory Size: 32.2 G'"
+TBV iD|C|iE
+M iF:"_dump_threads"
+M iG:"stack.append((f, f.f_lineno))"
+TBE hW|769|iF|iG
+TBV g4|hY|hZ
+TBV hV|al|ao
+M iH:"thread_id"
+M iI:"4577392128"
+TBV iH|bA|iI
+M iJ:"frame"
+M iK:"<frame at 0x11551af00, file '/Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/lib/python3.12/site-packages/robocorp/log/_robo_output_impl.py', line 773, code _dump_threads>"
+TBV iJ|iJ|iK
+M iL:"thread"
+M iM:"_MainThread"
+M iN:"<_MainThread(MainThread, started 4577392128)>"
+TBV iL|iM|iN
+M iO:"title"
+M iP:"'MainThread|Thread ID: 4577392128 (non daemon)'"
+TBV iO|C|iP
+M iQ:"f"
+M iR:"<frame at 0x7fe0b6ada840, file '/Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/lib/python3.12/site-packages/robocorp/tasks/_commands.py', line 494, code run>"
+TBV iQ|iJ|iR
+M iS:"stack"
+M iT:"[(<frame at 0x1117685f0, file '/Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/lib/python3.12/site-packages/robocorp/log/__init__.py', line 270, code process_snapshot>, 270), (<frame at 0x115503300, file '/Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/lib/python3.12/site-packages/robocorp/log/_robo_logger.py', line 20, code new_func>, 20), (<frame at 0x1155493c0, file '/Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/lib/python3.12/site-packages/robocorp/log/_robo_logger.py', line 416, code process_snapshot>, 416), (<frame at 0x111c8b6a0, file '/Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/lib/python3.12/site-packages/robocorp/log/_robo_output_impl.py', line 748, code process_snapshot>, 748), (<frame at 0x11551af00, file '/Users/Shared/sema4ai/ht/20300bf_c5e81ff_691db988/lib/python3.12/site-packages/robocorp/log/_robo_output_impl.py', line 773, code _dump_threads>, 769)]"
+TBV iS|bg|iT
+ETD 130.55
+EPS 130.55
+ET k|e|130.565
+ER k|130.565

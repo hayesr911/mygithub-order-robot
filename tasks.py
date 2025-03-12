@@ -20,11 +20,21 @@ def order_robots_from_RobotSpareBin():
     fill_form_with_cvs_data()
     archive_receipts()
 
+# def open_page(ctx: BrowserContext, url: str) -> Page:
+#     """
+#     Navigate to RobotSpareBin website
+#     """
+#     page = ctx.new_page()
+#     page.goto(url)
+#     return page
+    
+
 
 def open_robot_order_website():
     """
     Navigate to RobotSpareBin website
     """
+   
     browser.goto("https://robotsparebinindustries.com/#/robot-order")
 
 def download_cvs_data_file():
@@ -42,6 +52,9 @@ def fill_form_with_cvs_data():
         get_order(row)
 
 def close_annoying_modal():
+    """
+    Close annoying popup on page
+    """
     page = browser.page()
     page.click("//button[text()='OK']")
 
@@ -52,7 +65,11 @@ def get_order(order_item):
     """
     page = browser.page()
     page.select_option("#head", str(order_item["Head"]))
-    page.check("//input[@id='id-body-1']")
+    xpath_radio_check_box = "//div[@class='radio form-check']"
+    page.wait_for_selector(xpath_radio_check_box, timeout=7000)
+    search_radio_checkbox = page.locator(xpath_radio_check_box)
+    if search_radio_checkbox.count() > 0:
+        page.check(f"//input[@id='id-body-{str(order_item['Body'])}']")
     page.fill("//input[@type='number']", str(order_item["Legs"]))
     page.fill("#address", str(order_item["Address"]))
     page.click("//button[text()='Order']")
